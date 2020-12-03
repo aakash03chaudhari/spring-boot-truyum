@@ -22,12 +22,12 @@ public class AuthenticationServiceApplication {
 	@Bean
 	public Docket swaggerConfiguration() {
 		return new Docket(DocumentationType.SWAGGER_2).select()
-				.apis(RequestHandlerSelectors.basePackage("com.cognizant.authentication-service")).build();
+				.apis(RequestHandlerSelectors.basePackage("com.cognizant.authenticationservice")).build();
 
-		// Now you will only find documentation for zuul-gateway-service
+		// Now you will only find documentation for Authentication service
 		/*
-		 * Test : http://localhost:8762/swagger-ui.html
-		 * http://localhost:8762/v2/api-docs
+		 * Test : http://localhost:<port no>/swagger-ui.html
+		 * http://localhost:<port no>/v2/api-docs
 		 */
 	}
 }

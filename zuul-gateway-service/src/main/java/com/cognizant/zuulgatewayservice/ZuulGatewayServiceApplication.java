@@ -24,7 +24,7 @@ public class ZuulGatewayServiceApplication {
 	@Bean
 	public Docket swaggerConfiguration() {
 		return new Docket(DocumentationType.SWAGGER_2).select()
-				.apis(RequestHandlerSelectors.basePackage("com.cognizant.zuul-gateway-service")).build();
+				.apis(RequestHandlerSelectors.basePackage("com.cognizant.zuulgatewayservice")).build();
 
 		// Now you will only find documentation for zuul-gateway-service
 		/*
