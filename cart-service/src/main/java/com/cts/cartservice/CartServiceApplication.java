@@ -31,8 +31,8 @@ public class CartServiceApplication {
 
 		// Now you will only find documentation for cart-service
 		/*
-		 * Test : http://localhost:<port no>/swagger-ui.html http://localhost:<port
-		 * no>/v2/api-docs
+		 * Test : http://localhost:<port no>/swagger-ui.html 
+		 * http://localhost:<port no>/v2/api-docs
 		 */
 	}
 }
