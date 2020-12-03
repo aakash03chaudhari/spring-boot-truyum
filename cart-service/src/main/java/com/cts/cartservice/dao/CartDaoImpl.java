@@ -25,20 +25,19 @@ public class CartDaoImpl implements CartDao {
 	CartRepository cartRepository;
 
 	@Override
-	public void addCartItem(int userId, int menuItemId) throws MenuItemNotFoundException {
+	public void addCartItem(int userId,Cart cart) throws MenuItemNotFoundException {
 		log.debug("START");
 		
 		
 		log.debug("before proxy");
+		int menuItemId=cart.getItem_id();
 		MenuItem item = proxyService.findMenuItemById(menuItemId);
 		if (item==null) {
 			throw new MenuItemNotFoundException();
 		}
 		log.debug("after proxy");
-		Cart cart = new Cart();
-		cart.setItem_id(menuItemId);
-		cart.setUser_id(userId);
-		cartRepository.save(cart);
+		Cart cart1 = new Cart(userId,menuItemId);
+		cartRepository.save(cart1);
 		log.debug("END");
 	}
 
@@ -71,14 +70,15 @@ public class CartDaoImpl implements CartDao {
 	}
 
 	@Override
-	public void deleteCartItem(int userId, int menuItemId) throws MenuItemNotFoundException{
+	public void deleteCartItem(int userId, Cart cart) throws MenuItemNotFoundException{
 		log.debug("START");
+		int menuItemId=cart.getItem_id();
 		MenuItem menuItem = proxyService.findMenuItemById(menuItemId);
 		ArrayList<Cart> cartList = cartRepository.findByUserId(userId);
 		Cart delCart = null;
-		for (Cart cart : cartList) {
-			if (cart.getItem_id() == menuItemId) {
-				delCart = cart;
+		for (Cart cart1 : cartList) {
+			if (cart1.getItem_id() == menuItemId) {
+				delCart = cart1;
 			}
 
 			if (delCart != null) {

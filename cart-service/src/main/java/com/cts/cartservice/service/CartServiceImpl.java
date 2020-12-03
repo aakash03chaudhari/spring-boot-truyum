@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.cts.cartservice.dao.CartDaoImpl;
 import com.cts.cartservice.exception.CartNotFoundException;
 import com.cts.cartservice.exception.MenuItemNotFoundException;
+import com.cts.cartservice.model.Cart;
 import com.cts.cartservice.model.MenuItem;
 
 @Service
@@ -17,9 +18,9 @@ public class CartServiceImpl implements CartService {
 	CartDaoImpl cartDaoImpl;
 
 	@Override
-	public void addCartItem(int userId, int menuItemId) throws MenuItemNotFoundException {
+	public void addCartItem(int userId, Cart cart) throws MenuItemNotFoundException {
 
-		cartDaoImpl.addCartItem(userId, menuItemId);
+		cartDaoImpl.addCartItem(userId, cart);
 
 	}
 
@@ -30,9 +31,9 @@ public class CartServiceImpl implements CartService {
 	}
 
 	@Override
-	public void deleteCartItem(int userId, int menuItemId) throws MenuItemNotFoundException{
+	public void deleteCartItem(int userId, Cart cart) throws MenuItemNotFoundException{
 
-		cartDaoImpl.deleteCartItem(userId, menuItemId);
+		cartDaoImpl.deleteCartItem(userId, cart);
 	}
 
 }
