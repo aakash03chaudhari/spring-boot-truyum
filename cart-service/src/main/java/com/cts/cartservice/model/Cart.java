@@ -21,11 +21,11 @@ public class Cart {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	
-	@Min(value = 1,message = "User ID should not be 0 or less than 0")
+	@Min(value = 1,message = "{user_id.message}")
 	@Column(name = "user_id")
 	private int user_id;
 	
-	@Min(value = 1,message = "Item ID should not be 0 or less than 0")
+	@Min(value = 1,message = "{item_id.message}")
 	@Column(name = "item_id")
 	private int item_id;
 	

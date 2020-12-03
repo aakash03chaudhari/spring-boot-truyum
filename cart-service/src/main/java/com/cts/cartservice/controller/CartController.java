@@ -46,7 +46,6 @@ public class CartController {
 
 	// fetch all the cart items of existing users
 	@GetMapping(value = "/{userId}")
-	@HystrixCommand(fallbackMethod = "fallbackgetCartItem")
 	public ArrayList<MenuItem> getAllCartItems(@PathVariable("userId") int userId) throws CartNotFoundException {
 		log.info("START");
 

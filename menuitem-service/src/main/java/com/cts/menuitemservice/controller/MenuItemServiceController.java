@@ -39,7 +39,7 @@ public class MenuItemServiceController {
 
 	// Method is used to modify MenuItem by menuItemId and accessible for Admin
 	@PutMapping(value = "/admin/{menuItemId}")
-	public String modifyMenuItem(@PathVariable @Valid int menuItemId, @RequestBody MenuItem menuItem) {
+	public String modifyMenuItem(@PathVariable int menuItemId, @Valid @RequestBody MenuItem menuItem) {
 		MenuItem MenuItemModify = MenuItemServiceImpl.modifyMenuItem(menuItemId, menuItem);
 		return "Menu Item modify successfully. \n" + MenuItemModify.toString();
 	}
