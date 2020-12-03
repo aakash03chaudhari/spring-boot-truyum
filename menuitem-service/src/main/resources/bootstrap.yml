@@ -1,0 +1,12 @@
+spring:
+    application:
+        name: menuitem-service
+    cloud:
+        config:
+            fail-fast: true
+            retry:
+                maxAttempts: 200
+                maxInterval: 10000
+#            ------ FOR DOCKER-COMPOSE!!! ------    
+#            uri: http://config-server:8888
+            uri: http://localhost:8888
